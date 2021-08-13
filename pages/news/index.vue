@@ -4,9 +4,9 @@
         <p>新闻ID：{{$route.params.newsId}}</p>
         <ul>
             <li>
-                <a href="/">HOME</a>
-                <a href="/news/新闻内容">进入News-1</a>
-                <a href="/news/新闻内容2">进入News-2</a>
+                <nuxt-link :to="{name:'index'}">HOME</nuxt-link>
+                <nuxt-link :to="{name:'news-id',params:{id:'新闻内容'}}">进入News-1</nuxt-link>
+                <nuxt-link :to="{name:'news-id',params:{id:'新闻内容2'}}">进入News-2</nuxt-link>
             </li>
         </ul>
     </div>

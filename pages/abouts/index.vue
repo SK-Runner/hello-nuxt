@@ -1,10 +1,20 @@
 <template>
     <div>
-        <h2>关于页面</h2>
+        关于页面
         <ul>
             <li>
-                <a href="/">HOME</a>
+                <nuxt-link :to="{name:'index'}">HOME</nuxt-link>
             </li>
         </ul>
     </div>
 </template>
+
+<script>
+export default {
+    transition:'abouts'
+}
+</script>
+
+<style>
+
+</style>

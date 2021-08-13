@@ -178,7 +178,51 @@ export default {
 
 ### 3、Nuxt 的路由动画效果
 
+​		路由的动画效果，也叫作页面的更换效果。Nuxt.js提供两种方法为路由提供动画效果，一种是全局的，一种是针对单独页面制作。
 
+#### 3.1 全局路由动画
 
+全局动画默认使用page来进行设置，在根目录的assets/css下建立一个main.css文件。注意：只有通过<nuxt-link>组件来制作跳转链接，才有动画效果。
 
+动态路由，框架也会自动生成路由配置，所以_id对应的路由是：**所在目录名-id**
+
+```js
+//出自官方文档：
+	{
+      name: 'users-id',
+      path: '/users/:id?',
+      component: 'pages/users/_id.vue'
+    },
+```
+
+```vue
+动态路由对应路径：/news-id
+<nuxt-link :to="{name:'news-id',params:{id:'新闻内容2'}}">进入News-2</nuxt-link>
+```
+
+#### 3.2 单独设置页面动态
+
+​		想给一个页面单独设置特殊的效果时，我们只要在css里改变默认的page，然后在页面组件的配置中加入transition字段即可。例如，我们想给about页面加入一个字体放大然后缩小的效果，其他页面没有这个效果。
+
+第一步：在组件中添加 transition 字段，设置该页面对应的page名 ：
+
+```vue
+export default {
+    transition:'abouts'
+}
+```
+
+第二步：在css文件中自定义动画
+
+```css
+进出页面字体放大到40px，注意abouts-enter-active（之前是page-enter-active）
+.abouts-enter-active, .abouts-leave-active{
+    transition: all 2s;
+    font-size: 12px;
+}
+.abouts-enter, .abouts-leave{
+    opacity: 0;
+    font-size: 40px;
+}
+```
 

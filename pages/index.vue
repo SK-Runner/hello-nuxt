@@ -1,5 +1,6 @@
 <template>
     <div>
+    <p>新闻主页</p>
     <ul>
       <li><nuxt-link :to="{name:'index'}">HOME</nuxt-link></li>
       <li><nuxt-link :to="{name:'abouts'}">ABOUT</nuxt-link></li>
